@@ -1,0 +1,287 @@
+/* NORMALIZACION  */
+* {
+    padding: 0;
+    margin: 0;
+    
+    box-sizing: border-box; /*Mantiene el ancho y el alto a pesar de padding y border*/
+    font-family:'Courier New', Courier, monospace;
+    list-style: none; /*Quita los puntos y decoracion de listas*/
+    text-decoration: none; /*Quita el subrayado de los enlaces*/
+    color: white;
+}
+
+body{
+    background-color: black; /*TO DO: borrar al tener el fondo final*/
+}
+
+header{
+    position: fixed; /*Hace que el header se mantenga en la posicion superior de la pagina*/
+    right: 0;
+    top: 0;
+    z-index: 100; /*Esto hace que el header se muestre por encima*/
+    width: 100%;
+    display: flex; /*Los elementos se pondran en linea*/
+    align-items: center; /*Centra verticalmente a los items*/
+    justify-content: space-between; /*Los elementos se separan*/
+    padding: 15px 3%; /*Padding de 15px y se separa de la izquierda un 3% de su valor original*/
+    background-color: transparent;
+}
+
+.logo{ /*clase logo*/
+    font-size: 25px; /*temaño de la letras*/
+    font-weight: 600; /*grosor de letras*/
+    margin-top: 15px;
+}
+
+.navlist{
+    display: flex; /*Los elementos de la lista UL se coloquen en linea*/
+
+}
+
+.navlist a{ /*con esto, solo trabajo en los elementos que son "a" (links)*/
+    margin-left: 60px; /*separo las palabras*/
+    font-size: 15px;
+    font-weight: 700;
+    border-bottom: 2px solid transparent; /*subryadao transparente*/
+    transition: all .5s ease; /*sirve para animar (transicionar...) todas las caracteristicas del navlist "a"*/
+    
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid rgb(140, 80, 158) ; /*subryadao que aparecera cuando estemos arriba del elemento en la pagina con el mouse*/
+    
+}
+ 
+ #menu-icon{
+    display: none;
+}
+
+#menu-icon{
+    /*display: none; /*en none para que solo se vea cuando la pagina este colapsada de forma horizontal*/
+    font-size: 29px;
+    z-index: 101; /*para que este sobre el header*/
+    cursor: pointer; /*para que aparezca la "mano" al poner la mano encima*/
+}
+
+
+#menu-toggle{
+    display: none; /*para que no se vea el checkbox*/
+}
+
+.menu-icon-action{
+    display: none; /*para que no se pueda hacer click*/
+}
+
+
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh; /*view per heigth altura del viewport ocupa todo el alto disponible*/
+    background: linear-gradient(245.59deg, #391f41 0%, #32123b 25%, #1b0920 75%); /*fondo degradiente*/
+    position: relative; /*para que sea relativo al contenedor, permite usar bottom, top, left y right*/
+    display: grid; /*para que el "hero" se pueda divir en 2 columnas*/
+    grid-template-columns: 1fr 1fr; /*estas son las 2 columnas*/
+    align-items: center; /*para alinear verticalmente el hero*/
+    gap: 2rem; /*esto para que haya espacio de 2 ram entre las columnas*/
+    
+}
+
+section{
+    padding: 0 8%;
+
+}
+
+.hero-text h5{
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 25px;
+
+  
+}
+
+.hero-text h1{
+    font-size: 50px;
+    line-height: 1;
+    margin: 0  0 30px;
+}
+
+.hero-text h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-text p{
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+
+}
+
+.hero-img img{
+    width: 320px;
+    margin: 10% 0 0 10%;
+    height: auto;
+    margin-left: 60px;
+    transition: all 5s linear; /*hace que la transicion sea lineal*/
+}
+
+.hero-img img:hover{
+    width: 450px;
+    opacity: 0.6;
+    
+}
+
+.hero-text a{
+    display: inline-block;
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease-in-out;
+}
+
+.hero-text a:hover{
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text a.code{
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.code i{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.icons{
+    position: absolute; /*para que no queden abajo*/
+    top: 50vh; /*50 view per heigth, basicamente se situan a la mitad*/
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i{
+    display: block; /*para situar uno abajo del otro*/
+    margin: 26px 0;
+    font-size: 20px;
+    transition: all .5s ease;
+}
+
+.icons i:hover{
+    color: #4d4d4d;
+    transform: translateY(-5px);
+}
+
+.scroll-down{
+    position: absolute;
+    bottom: 6%;
+    right: 3%; /*se mueve el icono hacia la derecha*/
+}
+
+.scroll-down i{ /*trabajo solo en el icono "i"*/
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color: #4d4d4d;
+    border-radius: 30px; /*cambio el borde para que pase de ser cuadrado a circular*/
+    transition: all .5s ease;
+}
+
+.scroll-down i:hover{
+    transform: translateY(-5px);
+}
+
+/*Media queries para que la web sea responsive*/
+@media (max-width:992px){  /*Se declara un "breakpoint" basicamente donde entra en accion el media queries, en este caso 992px de ancho*/
+    section{
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text{
+        padding-top: 0;
+    }
+
+    .hero-img{
+        text-align: center;
+    }
+
+    .hero-img img{
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p{
+        font-size: 70%;
+
+    }
+
+    .scroll-down{
+        display: none;
+    }
+
+    .icons{
+        display: none; /*retiro los icons por que quedan sobrepuestos*/
+    }
+
+}
+
+@media (max-width: 768px){
+    .menu-icon-action{
+        display: block;
+    }
+
+    #menu-icon{
+        display: block;
+    }
+
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img{
+        margin: 0;
+    }
+
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+
+    }
+
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%; /*muevo la navlist hacia la derecha, donde no se puede ver*/
+        width: 200px;
+        height: 180px;
+        background-color: #130202b0;
+        display: flex;
+        flex-direction: column; /*cambio la direccion de los items a columna*/
+        align-items: center; /*los alineo*/
+        padding: 30px 20px; 
+        transition: all .5s ease-out;
+    }
+
+    .navlist a{
+        display: block;
+        margin: 7px 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul /*si esta checked, selecciono la lista ul*/ {
+        right: 0;
+    }
+
+
+}
